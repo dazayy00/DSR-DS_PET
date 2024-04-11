@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
-class Success_Notification extends StatefulWidget {
+class Fail_Notification extends StatefulWidget {
   //const Success_Notification({super.key});
 
   @override
-  State<Success_Notification> createState() => _Success_Notification();
+  State<Fail_Notification> createState() => _Fail_Notification();
 }
 
-class _Success_Notification extends State<Success_Notification> {
+class _Fail_Notification extends State<Fail_Notification> {
   bool _isShowing = false;
 
   void _toggleVisibility() {
@@ -25,7 +25,7 @@ class _Success_Notification extends State<Success_Notification> {
             children: <Widget>[
               
               AlertDialog(
-                backgroundColor: Color(0xFF02fcf3),
+                backgroundColor: Colors.red,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   side: BorderSide(
@@ -69,7 +69,7 @@ class _Success_Notification extends State<Success_Notification> {
             child: Container(
               width: 40,
               height: 40,
-              child: Image.asset('assets/comprobado(4).png', )),
+              child: Image.asset('assets/boton-eliminar.png', )),
               decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [

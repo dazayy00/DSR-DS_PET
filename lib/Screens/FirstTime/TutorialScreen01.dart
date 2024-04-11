@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/FailNotification%20.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
 import '../Widgets/ConfirmationButton.dart';
 
 class Tutorial_Screen01 extends StatefulWidget {
@@ -9,7 +11,7 @@ class Tutorial_Screen01 extends StatefulWidget {
 }
 
 class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
-  
+  bool _isVisible = false;
   int touchCount = 0;
   bool canTap = true;
   bool ani1 = true;
@@ -87,25 +89,6 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
 
             SizedBox(height: 20.0),
                 
-                //2
-                /*Positioned(
-                  left: 35,
-                  top: 250,
-                  right: 0,
-                  bottom: 0,
-                    child: Container(
-                      child: FadeInUp(
-                        //animate: ani1,
-                        manualTrigger: ani1,
-                        child: Text('Bienvenido a PET+, una aplicación que te permitirá seguir cuidando de tus amigos sin importar en donde te encuentres',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                ),*/
-                
                 Positioned(
                   left: 35,
                   top: 250,
@@ -129,6 +112,19 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
                     left: -50,
                     child: BounceInUp(child: Image.asset('assets/image-removebg-preview_(2).png',)),
                 ),
+                
+                /*ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Fail_Notification();
+                        //return Success_Notification();
+                        },
+                      );
+                  },
+                  child: Text('Mostrar AlertDialog Personalizado'),
+                ),*/
 
                 //4
                 Positioned(
@@ -142,8 +138,7 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
                       ),
                     ),
                 ),
-        
-                Text("yyy"),
+
               ],
             )
           )
@@ -153,37 +148,3 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
   }
 
 }
-
-/*class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Colors.grey,
-          child: Stack(
-            alignment: Alignment.center,
-            fit: StackFit.loose,
-            children: [
-              Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.identity()..scale(-1.0, 1.0),
-            child: Image.asset(
-              'assets/image-removebg-preview_(3).png',
-            ),
-          ),
-              Positioned(
-                bottom: 0,
-                left: -55,
-                child: Image.asset('assets/image-removebg-preview_(2).png',),
-              ),
-            ],
-          ),
-        )
-      )
-    );
-  }
-
-}*/
