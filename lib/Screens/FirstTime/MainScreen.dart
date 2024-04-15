@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 //import 'package:pet_plus_v01/Widgets/InitialButton.dart';
 import '../Widgets/InitialButton.dart';
 
@@ -27,7 +28,6 @@ class Main_Screen extends StatelessWidget{
               const Spacer(
                 flex: 1,
               ),
-
               //SizedBox(height: 175.0),
               Initial_Button(TextButton: '¡Empezar ahora!', ruta:'/TutorialScreen01'),
 

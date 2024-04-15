@@ -134,7 +134,7 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
                       child: FadeIn(
                         duration: Duration(milliseconds: 1500),
                         animate: animatenow,
-                        child: Confirmation_Button(TextButton: 'Registrarme', ActivateButton: animatenow ? true : false,),
+                        child: Confirmation_Button(TextButton: 'Registrarme', ruta: '/CreateAccount', ActivateButton: animatenow ? true : false,),
                       ),
                     ),
                 ),
