@@ -4,6 +4,7 @@ import 'package:pet_plus_ver01/Screens/FirstTime/TutorialScreen01.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
+import 'package:pet_plus_ver01/Screens/FirstTime/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,13 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/MainScreen': (context) => Main_Screen(),
+        '/home': (context) => home(),
         '/TutorialScreen01': (context) => Tutorial_Screen01(),
         '/SuccessNotification': (context) => Success_Notification(),
-        '/CreateAccount':(context) => Create_Account(),
+        '/CreateAccount': (context) => Create_Account(),
       },
       //initialRoute: '/',
-      initialRoute: '/MainScreen',
+      initialRoute: '/home',
       //initialRoute: '/TextFieldDefault',
       title: 'Pet+ Demo',
       /*theme: ThemeData(
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),*/
       debugShowCheckedModeBanner: false, //Oculta "Debug"
-      
+
       //home: Main_Screen()
 
       /*const MyHomePage(title: 'Flutter Demo Home Page'),*/
