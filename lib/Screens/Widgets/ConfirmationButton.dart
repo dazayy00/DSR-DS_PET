@@ -22,7 +22,7 @@ class Confirmation_Button extends StatelessWidget{
         }
       } : null,
         style: ElevatedButton.styleFrom(
-          primary: ButtonColor,
+          backgroundColor: ButtonColor,
           elevation: 5,
           shape: RoundedRectangleBorder(
             //side: BorderSide(color: Colors.black, width: 2),

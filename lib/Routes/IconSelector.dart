@@ -16,15 +16,15 @@ class AssetPaths {
         return '$_basePath/candado.png';
       case 6:
         return '$_basePath/candados.png';
-      /*case 7:
-        return '$_basePath/desconocido.png';
+      case 7:
+        return '$_basePath/linea-circular-con-la-palabra-edad-en-el-centro.png';
       case 8:
-        return '$_basePath/desconocido.png';
+        return '$_basePath/pixie-bob-cat.png';
       case 9:
-        return '$_basePath/desconocido.png';
+        return '$_basePath/gatito.png';
       case 10:
-        return '$_basePath/desconocido.png';
-      case 11:
+        return '$_basePath/dispensador-de-caramelos.png';
+      /*case 11:
         return '$_basePath/desconocido.png';
       case 12:
         return '$_basePath/desconocido.png';*/

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/MainScreen.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/TutorialScreen01.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/ClockWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
-import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
+//import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,12 +22,14 @@ class MyApp extends StatelessWidget {
       routes: {
         '/MainScreen': (context) => Main_Screen(),
         '/TutorialScreen01': (context) => Tutorial_Screen01(),
-        '/SuccessNotification': (context) => Success_Notification(),
         '/CreateAccount':(context) => Create_Account(),
+        '/RegisterCat':(context) => Register_Cat(),
+        '/RegisterPetP':(context) => Register_PetP(),
+        '/ClockWidget':(context) => Clock_Widget(),
       },
       //initialRoute: '/',
-      initialRoute: '/MainScreen',
-      //initialRoute: '/TextFieldDefault',
+      //initialRoute: '/MainScreen',
+      initialRoute: '/ClockWidget',
       title: 'Pet+ Demo',
       /*theme: ThemeData(
         // This is the theme of your application.

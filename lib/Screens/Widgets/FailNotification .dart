@@ -46,7 +46,7 @@ class _Fail_Notification extends State<Fail_Notification> {
                             Navigator.of(context).pop();
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
+                            backgroundColor: Colors.white,
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                               //side: BorderSide(color: Colors.black, width: 2),

@@ -57,9 +57,11 @@ class _Tutorial_Screen01 extends State<Tutorial_Screen01>{
                     alignment: Alignment.center,
                     child: FadeInUp(
                       child: Container(
+                        //color: Colors.black,
                         margin: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.18,
-                          left: MediaQuery.of(context).size.height * 0.01,
+                          //left: MediaQuery.of(context).size.height * 0.01,
+                          //right: MediaQuery.of(context).size.height * 0.01,
                         ),
                         child: Image.asset('assets/image-removebg-preview_(3).png', ),
                       ),
