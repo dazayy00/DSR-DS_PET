@@ -5,6 +5,7 @@ import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/home.dart';
+import 'package:pet_plus_ver01/Screens/FirstTime/EliminarCuenta';
 
 void main() {
   runApp(const MyApp());
@@ -18,13 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/home': (context) => home(),
+        '/EliminarCuenta': (context) => EliminarCuenta(),
         '/TutorialScreen01': (context) => Tutorial_Screen01(),
         '/SuccessNotification': (context) => Success_Notification(),
         '/CreateAccount': (context) => Create_Account(),
       },
       //initialRoute: '/',
-      initialRoute: '/home',
+      initialRoute: '/EliminarCuenta',
       //initialRoute: '/TextFieldDefault',
       title: 'Pet+ Demo',
       /*theme: ThemeData(
