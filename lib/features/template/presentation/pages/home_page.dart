@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:petplus/features/template/presentation/pages/registrar_dispositivo.dart';
+import 'package:petplus/features/template/presentation/pages/feeding_card.dart';
+import 'package:petplus/features/template/presentation/pages/registrar_dispositivo.dart';
+
 
 class HomePage extends StatelessWidget{
 
@@ -74,7 +76,7 @@ class HomePage extends StatelessWidget{
             ListTile(
               leading: const Icon(Icons.sensors_sharp),
               title: const Text('REGISTRAR PET+'),
-              //onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute( builder: (context) => const RegistrarDispositivo(),)),
+              onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute( builder: (context) => const RegistrarDispositivo(),)),
             ),
             
             const ListTile(
@@ -86,7 +88,12 @@ class HomePage extends StatelessWidget{
         ),
       ),
 
-      
+      body: Column(
+        children: [
+          const FeedingCard(),
+          
+        ],
+      ),
 
     );
   }
