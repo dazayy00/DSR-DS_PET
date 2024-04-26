@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/MainScreen.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/TutorialScreen01.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/EliminarCuenta';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/home.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ClockWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/TimeWidget.dart';
 //import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 
 void main() {
@@ -26,10 +29,13 @@ class MyApp extends StatelessWidget {
         '/RegisterCat':(context) => Register_Cat(),
         '/RegisterPetP':(context) => Register_PetP(),
         '/ClockWidget':(context) => Clock_Widget(),
+        '/TimeWidget':(context) => Time_Widget(),
+        '/home':(context) => home(),
+        '/EliminarCuenta':(context) => EliminarCuenta(),
       },
       //initialRoute: '/',
       //initialRoute: '/MainScreen',
-      initialRoute: '/ClockWidget',
+      initialRoute: '/home',
       title: 'Pet+ Demo',
       /*theme: ThemeData(
         // This is the theme of your application.
