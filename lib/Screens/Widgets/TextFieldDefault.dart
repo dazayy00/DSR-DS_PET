@@ -19,7 +19,7 @@ class _TextField_Default extends State<TextField_Default> {
     return Container(
           alignment: Alignment.center,
           width: MediaQuery.of(context).size.width * 0.8,
-          height: 50,
+          height: 60,
           padding: EdgeInsets.only(bottom: 8.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
@@ -34,6 +34,7 @@ class _TextField_Default extends State<TextField_Default> {
           ),
           child: TextField(
             //textAlignVertical: TextAlignVertical.center,
+            maxLines: 1,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.0),

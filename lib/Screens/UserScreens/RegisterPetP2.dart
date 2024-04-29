@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_plus_ver01/Routes/CatOwnerSelector.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/BackButtonWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ConfirmationButton.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ListButton.dart';
@@ -8,7 +9,7 @@ import 'package:pet_plus_ver01/Screens/Widgets/TextPasswordDefault.dart';
 import '../../Routes/IconSelector.dart';
 import '../../Routes/ListRaceSelector.dart';
 
-class Register_PetP extends StatelessWidget {
+class Register_PetP2 extends StatelessWidget {
   //const Register_PetP({super.key});
   Color colora = Colors.red;
 
@@ -22,7 +23,7 @@ class Register_PetP extends StatelessWidget {
               children: <Widget>[
                 
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 60.0, 0.0, 0.0),
                 ),
 
                 Image.asset(
@@ -41,13 +42,13 @@ class Register_PetP extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                TextField_Default(TextTf: 'Edad', ruta: 7,),
+                TextField_Default(TextTf: 'Alimento', ruta: 11,),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
 
-                List_Button_Widget(ruta: 8, lista: Race_Selector,),
+                List_Button_Widget(ruta: 8, lista: Cat_Owner_Selector,),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
@@ -61,7 +62,7 @@ class Register_PetP extends StatelessWidget {
 
                 Confirmation_Button(TextButton: 'Confirmar'),
 
-                TextButtonWidget(texto: 'Cancelar', color: Colors.red,),
+                TextButtonWidget(texto: 'Cancelar', color: Colors.red, atras: 'atras',),
 
                 Padding(
                   padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 0.0),

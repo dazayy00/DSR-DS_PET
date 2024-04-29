@@ -1,4 +1,4 @@
-List<String> Food_Selector = [
+List<String> Food_Type_Selector = [
   '-Seleccionar-'
   'Seco',
   'Humedo'

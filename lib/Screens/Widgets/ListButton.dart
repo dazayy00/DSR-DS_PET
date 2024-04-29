@@ -25,7 +25,7 @@ class _List_Button_WidgetState extends State<List_Button_Widget> {
     return Container(
         alignment: Alignment.center,
           width: MediaQuery.of(context).size.width * 0.8,
-          height: 50,
+          height: 55,
           padding: EdgeInsets.only(bottom: 4.0),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
@@ -59,6 +59,7 @@ class _List_Button_WidgetState extends State<List_Button_Widget> {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+              isExpanded: true,
               //value: dropdonwValue,
               style: const TextStyle(color: Colors.black),
               

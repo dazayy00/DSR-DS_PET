@@ -24,6 +24,14 @@ class AssetPaths {
         return '$_basePath/gatito.png';
       case 10:
         return '$_basePath/dispensador-de-caramelos.png';
+      case 11:
+        return '$_basePath/alimentos-para-mascotas.png';
+      case 12:
+        return '$_basePath/engranajes-de-configuracion.png';
+      case 13:
+        return '$_basePath/antena.png';
+      case 14:
+        return '$_basePath/producto-de-codigo-de-barras.png';
       /*case 11:
         return '$_basePath/desconocido.png';
       case 12:

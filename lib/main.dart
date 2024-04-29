@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/MainScreen.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/TutorialScreen01.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/EditAccount.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/EditPetP.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EliminarCuenta';
+import 'package:pet_plus_ver01/Screens/UserScreens/MainScreenU.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
-import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP1.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP2.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/home.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ClockWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
@@ -25,17 +29,22 @@ class MyApp extends StatelessWidget {
       routes: {
         '/MainScreen': (context) => Main_Screen(),
         '/TutorialScreen01': (context) => Tutorial_Screen01(),
+        '/MainScreenU': (context) => Main_ScreenU(),
         '/CreateAccount':(context) => Create_Account(),
+        '/EditAccount':(context) => Edit_Account(),
         '/RegisterCat':(context) => Register_Cat(),
-        '/RegisterPetP':(context) => Register_PetP(),
+        '/RegisterPetP1':(context) => Register_PetP1(),
+        '/RegisterPetP2':(context) => Register_PetP2(),
+        '/EditPetP':(context) => Edit_PetP(),
+        '/home':(context) => home(),
         '/ClockWidget':(context) => Clock_Widget(),
         '/TimeWidget':(context) => Time_Widget(),
-        '/home':(context) => home(),
         '/EliminarCuenta':(context) => EliminarCuenta(),
+        
       },
       //initialRoute: '/',
-      //initialRoute: '/MainScreen',
-      initialRoute: '/home',
+      initialRoute: '/MainScreen',
+      //initialRoute: '/EditPetP',
       title: 'Pet+ Demo',
       /*theme: ThemeData(
         // This is the theme of your application.

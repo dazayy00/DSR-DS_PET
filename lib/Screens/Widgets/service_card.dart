@@ -3,13 +3,13 @@ import 'package:pet_plus_ver01/Screens/Widgets/TimeWidget.dart';
 
 class ServiceCard extends StatefulWidget {
   final IconData icon;
-  final bool state;
+  bool state;
   final int availability;
   final String nextRound;
   //final bool thumbsUp;
   final double iconSize;
 
-  const ServiceCard({
+ServiceCard({
     required this.icon,
     required this.state,
     required this.availability,
@@ -23,8 +23,10 @@ class ServiceCard extends StatefulWidget {
 }
 
 class _ServiceCardState extends State<ServiceCard> {
+  late bool _value;
   @override
   Widget build(BuildContext context) {
+    _value = widget.state;
     return Card(
       elevation: 4,
       margin: EdgeInsets.symmetric(horizontal: 16),
@@ -38,8 +40,21 @@ class _ServiceCardState extends State<ServiceCard> {
               children: [
                 Column(
                   children: [
-                    Icon(widget.icon, color: widget.state ? Colors.blue : Colors.red, 
+                    IconButton(
+                      icon: Icon(widget.icon, color: widget.state ? Colors.blue : Colors.red, 
                     size: widget.iconSize),
+                    onPressed: () {
+                      setState(() {
+      widget.state = !widget.state;
+    });
+              print('Botón presionado bool');
+            },
+                    ),
+                    /*IconButton(onPressed: onPressed, 
+                    widget.icon, color: widget.state ? Colors.blue : Colors.red, 
+                    size: widget.iconSize),*/
+                    /*Icon(widget.icon, color: widget.state ? Colors.blue : Colors.red, 
+                    size: widget.iconSize),*/
                     Text(
                       widget.state ? 'Encendido' : 'Apagado',
                       style: TextStyle(
@@ -47,16 +62,20 @@ class _ServiceCardState extends State<ServiceCard> {
                         color: const Color.fromARGB(255, 5, 2, 2),
                       ),
                     ),
+                    
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Time_Widget(
-                      onTimeSelected: (TimeOfDay time) {
-                        print('Hora seleccionada: ${time.format(context)}');
+                    IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () async {
+                        Navigator.pushNamed(context, "/RegisterPetP1");
                       },
                     ),
+
+                    
                     Row(
                       children: [
                         Text(
@@ -92,6 +111,11 @@ class _ServiceCardState extends State<ServiceCard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Time_Widget(
+                      onTimeSelected: (TimeOfDay time) {
+                        print('Hora seleccionada sc: ${time.format(context)}');
+                      },
+                    ),
                 Text(
                   'Próxima ronda: ',
                   style: TextStyle(

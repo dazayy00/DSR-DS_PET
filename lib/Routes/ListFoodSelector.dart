@@ -1,5 +1,5 @@
 List<String> Food_Selector = [
-  '-Seleccionar-'
+  '-Seleccionar-',
   'Minino Duo',
   'NUPEC SUPER PREMIUM FELINO ANUPEC',
   'Minino Plus',
@@ -7,7 +7,7 @@ List<String> Food_Selector = [
   'PURINA ONE',
   'PURINA Gatina',
   'Whiskas',
-  'PURINA Felix'
+  'PURINA Felix',
   'Hills SCIENCE DIET HAIRBALL CO!',
   'PURINA PRO PLAN STERILIZED',
   'PURINA PRO PLAN (ADULT 7+)',

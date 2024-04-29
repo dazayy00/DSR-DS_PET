@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pet_plus_ver01/Screens/Widgets/BackButtonWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ConfirmationButton.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextButtonWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextPasswordDefault.dart';
 
-class Create_Account extends StatelessWidget {
+class Edit_Account extends StatelessWidget {
   //const Create_Account({super.key});
 
   @override
@@ -16,7 +17,8 @@ class Create_Account extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(25.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 250.0, 0.0),
+                  child: Back_Button_Widget(),
                 ),
 
                 Image.asset(
@@ -64,9 +66,8 @@ class Create_Account extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                 ),
                 
-                Confirmation_Button(TextButton: 'Crear Cuenta', ruta: '/home',),
+                Confirmation_Button(TextButton: 'Guardar', ruta: '/home',),
                 
-                TextButtonWidget(texto: 'Iniciar Sesión', color: Color.fromARGB(255, 165, 161, 78),),
         
               ],
           ),

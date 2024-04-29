@@ -20,7 +20,7 @@ class _Time_Widget extends State<Time_Widget> {
     return Center(
       child: 
       IconButton(
-        icon: Icon(Icons.settings),
+        icon: Icon(Icons.timer),
         onPressed: () async {
           print('C');
           _showTimePicker(context);
@@ -70,9 +70,6 @@ class _Time_Widget extends State<Time_Widget> {
     }
   }
 }
-
-
-
 
 class TimeUtil {
   static TimeOfDay getHour() {
