@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_plus_ver01/Routes/ListRaceId.dart';
 import '../../Routes/IconSelector.dart';
 
 class List_Button_Widget extends StatefulWidget {
@@ -6,9 +7,17 @@ class List_Button_Widget extends StatefulWidget {
   //List rselect = ListRaceSelector;
   int ruta = 0;
   List<String> lista = ['Opción 1', 'Opción 2', 'Opción 3'];
-  
+  List<String>? listaID;
+  String? _selectedItem;
+  ValueChanged<String>? onItemSelected;
 
-  List_Button_Widget({required this.ruta, required this.lista});
+  List_Button_Widget({
+    required this.ruta, 
+    required this.lista,
+    
+    this.listaID,
+    this.onItemSelected
+    });
 
   @override
   State<List_Button_Widget> createState() => _List_Button_WidgetState();
@@ -72,11 +81,18 @@ class _List_Button_WidgetState extends State<List_Button_Widget> {
             }).toList(),
 
             value: valorSeleccionado,
+
+            
+
             onChanged: (String? newValue) {
               setState(() {
                   valorSeleccionado = newValue;
                 });
               print('Seleccionaste: $newValue');
+              print(Race_Id.getRaceID(newValue!));
+              if (newValue != null) {
+          widget.onItemSelected!(Race_Id.getRaceID(newValue!));
+        }
             },
             ),
           ),

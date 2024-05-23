@@ -3,6 +3,14 @@ import 'package:animate_do/animate_do.dart';
 
 class Fail_Notification extends StatefulWidget {
   //const Success_Notification({super.key});
+  String tituloFN;
+
+  String mensajeFN;
+
+  Fail_Notification({
+    required this.tituloFN, 
+    required this.mensajeFN, 
+  });
 
   @override
   State<Fail_Notification> createState() => _Fail_Notification();
@@ -33,13 +41,13 @@ class _Fail_Notification extends State<Fail_Notification> {
                         width: 1.0, // Cambia aquí el ancho del borde
                       ),
                   ),
-                title: Text('\nTitulo Notificacion',
+                title: Text('\n' + widget.tituloFN,
                 textAlign: TextAlign.center,
                 ),
                 content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text('Este es un mensaje de ejemplo.'),
+                        Text(widget.mensajeFN),
                         SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {

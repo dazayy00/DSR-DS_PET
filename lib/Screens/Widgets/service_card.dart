@@ -8,12 +8,14 @@ class ServiceCard extends StatefulWidget {
   final String nextRound;
   //final bool thumbsUp;
   final double iconSize;
+  final String petname;
 
 ServiceCard({
     required this.icon,
     required this.state,
     required this.availability,
     required this.nextRound,
+    required this.petname,
     //required this.thumbsUp,
     this.iconSize = 40,
   });
@@ -141,11 +143,11 @@ class _ServiceCardState extends State<ServiceCard> {
                 ),
               ],
             ),
-            // Reemplazar el texto con la imagen del gato
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text('michi',
+                Text(widget.petname,
                 style: TextStyle(
                     fontSize: 18,
                     color: Color(0xFFecd391),

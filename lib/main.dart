@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/MainScreen.dart';
 import 'package:pet_plus_ver01/Screens/FirstTime/TutorialScreen01.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/DeleteAccount.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EditAccount.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EditPetP.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EliminarCuenta';
+import 'package:pet_plus_ver01/Screens/UserScreens/LogIn.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/MainScreenU.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP1.dart';
@@ -13,14 +15,42 @@ import 'package:pet_plus_ver01/Screens/UserScreens/home.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ClockWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TimeWidget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+//import 'package:pet_plus_ver01/Dat/Models/UserModels.dart';
+//import 'package:pet_plus_ver01/Dat/UseCases/toJSON.dart';
 //import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool hasData = prefs.containsKey('usuarioS');
+
+  //print(prefs.getString('usuarioS'));
+
+  //runApp(const MyApp());
+  runApp(MyApp(hasData: hasData));
+
+
+
+  /*Map<String, dynamic> jsonData = tJCreateAccount(
+  "Juan", 
+  "Perez", 
+  "Usuario001", 
+  "juan001@hotmail.com", 
+  "Juan001"
+  );
+
+  CreateAccount("https://eouww9yquk.execute-api.us-east-1.amazonaws.com/user/add", 
+  jsonData
+  );*/
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool hasData;
+  //const MyApp({super.key});
+  MyApp({required this.hasData});
 
   // This widget is the root of your application.
   @override
@@ -31,6 +61,7 @@ class MyApp extends StatelessWidget {
         '/TutorialScreen01': (context) => Tutorial_Screen01(),
         '/MainScreenU': (context) => Main_ScreenU(),
         '/CreateAccount':(context) => Create_Account(),
+        '/LogIn':(context) => Log_In(),
         '/EditAccount':(context) => Edit_Account(),
         '/RegisterCat':(context) => Register_Cat(),
         '/RegisterPetP1':(context) => Register_PetP1(),
@@ -40,10 +71,13 @@ class MyApp extends StatelessWidget {
         '/ClockWidget':(context) => Clock_Widget(),
         '/TimeWidget':(context) => Time_Widget(),
         '/EliminarCuenta':(context) => EliminarCuenta(),
+        '/DeleteAccount':(context) => Delete_Account(),
         
       },
       //initialRoute: '/',
-      initialRoute: '/MainScreen',
+      //initialRoute: '/MainScreen',
+      initialRoute: hasData ? '/MainScreenU' : '/MainScreen',
+
       //initialRoute: '/EditPetP',
       title: 'Pet+ Demo',
       /*theme: ThemeData(

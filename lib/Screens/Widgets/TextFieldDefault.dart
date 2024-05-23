@@ -7,13 +7,21 @@ class TextField_Default extends StatefulWidget {
   String TextTf = '...';
   int ruta = 0;
 
-  TextField_Default({required this.TextTf, required this.ruta});
+  //ValueChanged<String>? onChanged;
+  TextEditingController? controller;
+
+  TextField_Default({required this.TextTf, required this.ruta, 
+  //this.onChanged, 
+  this.controller
+  });
 
   @override
   State<TextField_Default> createState() => _TextField_Default();
 }
 
 class _TextField_Default extends State<TextField_Default> {
+  String TextoGuardado = ''; // Variable para almacenar el texto
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,6 +64,14 @@ class _TextField_Default extends State<TextField_Default> {
                 /*prefixIcon: Icon(Icons.person), // Icono a la izquierda del TextField
                 prefixIconConstraints: BoxConstraints(minWidth: 40, minHeight: 40),*/
             ),
+            controller: widget.controller,
+            //onChanged: widget.onChanged,
+            /*onChanged: (value) {
+              setState(() {
+                TextoGuardado = value; // Actualiza el texto en la variable
+                print(value + " Guardado");
+              });
+            },*/
           ),
     );
   }

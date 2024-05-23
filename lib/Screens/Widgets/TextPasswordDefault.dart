@@ -7,7 +7,11 @@ class TextPassword_Default extends StatefulWidget {
   String TextTf = '...';
   int ruta = 0;
 
-  TextPassword_Default({required this.TextTf, required this.ruta});
+  TextEditingController? controller;
+
+  TextPassword_Default({required this.TextTf, required this.ruta, 
+  this.controller
+  });
 
   @override
   State<TextPassword_Default> createState() => _TextPassword_Default();
@@ -19,7 +23,7 @@ class _TextPassword_Default extends State<TextPassword_Default> {
     return Container(
           alignment: Alignment.center,
           width: MediaQuery.of(context).size.width * 0.8,
-          height: 50,
+          height: 60,
           padding: EdgeInsets.only(bottom: 8.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
@@ -67,6 +71,7 @@ class _TextPassword_Default extends State<TextPassword_Default> {
                 /*prefixIcon: Icon(Icons.person), // Icono a la izquierda del TextField
                 prefixIconConstraints: BoxConstraints(minWidth: 40, minHeight: 40),*/
             ),
+            controller: widget.controller,
           ),
     );
   }

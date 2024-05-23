@@ -32,6 +32,8 @@ class AssetPaths {
         return '$_basePath/antena.png';
       case 14:
         return '$_basePath/producto-de-codigo-de-barras.png';
+      case 15:
+        return '$_basePath/igualada.png';
       /*case 11:
         return '$_basePath/desconocido.png';
       case 12:

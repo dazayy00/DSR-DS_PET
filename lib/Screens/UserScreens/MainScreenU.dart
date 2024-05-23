@@ -29,7 +29,7 @@ class Main_ScreenU extends StatelessWidget{
                 flex: 1,
               ),
               //SizedBox(height: 175.0),
-              Initial_Button(TextButton: '¡Empezar ahora!', ruta:'/home'),
+              Initial_Button(TextButton: 'Ver mi hogar', ruta:'/home'),
 
               SizedBox(height: 50),
             ],
