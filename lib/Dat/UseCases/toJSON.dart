@@ -33,3 +33,16 @@ Map<String, dynamic> tJCreatePet
   };
 
 }
+
+Map<String, dynamic> tJEditAccount 
+(String usuario, String nombre, String apellido, String email, String contrasena){
+
+  return{
+    'user': usuario,
+    'name': nombre,
+    'lastname': apellido,
+    'email': email,
+    'password': contrasena
+  };
+
+}

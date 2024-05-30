@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pet_plus_ver01/Dat/Methods/DelFuntion.dart';
+import 'package:pet_plus_ver01/Dat/Methods/GetFuntion.dart';
 import 'package:pet_plus_ver01/Dat/Methods/PostFuntion.dart';
+import 'package:pet_plus_ver01/Dat/Methods/PutFuntion.dart';
 
 Future<void> dataLogIn
 (String url, Map<String, dynamic> jsonData) {
@@ -23,7 +25,32 @@ Future<void> CreatePet
   return post_CreatePet(url, jsonData);
 
 }
+//
 
+///GET
+Future<dynamic> GetAccountPets
+(String urlid){
+  String url = 'https://eouww9yquk.execute-api.us-east-1.amazonaws.com/pets/get_pets_user?id=$urlid';
+  print('Obteniendo datos de Usuario');
+  return get_AccountPets(url);
+
+}
+
+void GAP_DeCode(List<dynamic> lista_nJ){
+
+}
+
+//
+
+///PUT
+Future<void> EdditAccount 
+(String urlid, Map<String, dynamic> jsonData){
+  String url = 'https://eouww9yquk.execute-api.us-east-1.amazonaws.com/user/update_user?id=$urlid';
+  print('Editando Usuario');
+  return put_UpdateAccount(url, jsonData);
+
+}
+//
 
 ///DEL
 Future<void> DeleteAccount

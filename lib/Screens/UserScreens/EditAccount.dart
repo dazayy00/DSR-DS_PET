@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/BackButtonWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ConfirmationButton.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextButtonWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextFieldDefault.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/TextPasswordDefault.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Edit_Account extends StatefulWidget {
   @override
@@ -24,7 +26,16 @@ class _Edit_AccountState extends State<Edit_Account> {
   String mensage = '';
   List<String>? inputT = [];
   bool zz = false;
+  String id = '123';
 
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(Duration(seconds: 3), getId);
+    });
+  }
+  
   @override
   void dispose() {
     _controller1.dispose();
@@ -36,6 +47,15 @@ class _Edit_AccountState extends State<Edit_Account> {
     super.dispose();
   }
 
+  Future<void> getId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    
+    id = prefs.getString('idS')!;
+    print(id + ' + ' + '||');
+    print(prefs.get('idS'));
+      
+  }
+
   bool _areTextsEqual() {
     return _controller5.text == _controller6.text;
   }
@@ -45,7 +65,7 @@ class _Edit_AccountState extends State<Edit_Account> {
       setState(() {
         result = '==';
         _result = true;
-        List<String> FieldT = [_controller1.text, _controller2.text, _controller3.text, _controller4.text, _controller5.text,];
+        List<String> FieldT = [_controller1.text, _controller2.text, _controller3.text, _controller4.text, _controller5.text, id];
         for (var texto in FieldT) {
     inputT!.add(texto);
   }
@@ -81,45 +101,58 @@ class _Edit_AccountState extends State<Edit_Account> {
                   padding: EdgeInsets.all(16.0),
                 ),
         
-                TextField_Default(TextTf: 'Nombre', ruta: 1,),
+                TextField_Default(TextTf: 'Nombre', ruta: 1,
+                controller: _controller1,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                TextField_Default(TextTf: 'Apellido', ruta: 2,),
+                TextField_Default(TextTf: 'Apellido', ruta: 2,
+                controller: _controller2,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                TextField_Default(TextTf: 'Nombre de Usuario', ruta: 3,),
+                TextField_Default(TextTf: 'Nombre de Usuario', ruta: 3,
+                controller: _controller3,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                TextField_Default(TextTf: 'Dirección de Correo', ruta: 4,),
+                TextField_Default(TextTf: 'Dirección de Correo', ruta: 4,
+                controller: _controller4,
+                ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                TextPassword_Default(TextTf: 'Contraseña', ruta: 5,),
+                TextPassword_Default(TextTf: 'Contraseña', ruta: 5,
+                controller: _controller5,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
                 TextPassword_Default(TextTf: 'Confirmación de Contraseña', ruta: 6,
-                
-                
+                controller: _controller6,
                 ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
                 
-                Confirmation_Button(TextButton: 'Guardar', ruta: '/home',),
+                Confirmation_Button(TextButton: 'Guardar', ruta: '/home',
+                additionalFunction: _compareTexts,
+                Text_Field: 'EU',
+                inputTexts: inputT,
+                ),
                 
                 TextButtonWidget(texto: 'Borrar Cuenta', color: Colors.red, ruta: '/DeleteAccount',),
         

@@ -41,7 +41,7 @@ class Race_Id {
       case 'Mau Egipcio':
         return 'fb916c15-678d-4d55-87c6-d13d7e178924';
       case 'Noruego':
-        return '3514c9f0-aff7-4d67-b31c-8ae9070f904f  ';
+        return '3514c9f0-aff7-4d67-b31c-8ae9070f904f';
       case 'Ocicat':
         return '06f436cb-535c-416c-a303-0e3476d8c41f';
       case 'Oriental':

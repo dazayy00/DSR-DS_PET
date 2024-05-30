@@ -29,18 +29,27 @@ class Confirmation_Button extends StatelessWidget{
   
   @override
   Widget build(BuildContext context){
+    bool nextB;
+
     return ElevatedButton(
       onPressed: ActivateButton ? () async {
         print('Botón presionado');
 
         if (additionalFunction != null) {
           additionalFunction!();
+
+          ///
+          
+
         }
 
+        /*
         //await
         if (ruta != null) {
           Navigator.pushNamed(context, ruta!);
         }
+        */
+        await Future.delayed(Duration(seconds: 2));
         if (Text_Field != null){
           if (Text_Field == 'CU') {
           // Ejecuta la función pasada como argumento
@@ -53,14 +62,18 @@ class Confirmation_Button extends StatelessWidget{
             builder: (context) => Fail_Notification(tituloFN: 'Error', 
             mensajeFN: 'Haz dejado un espacio en blanco',)
           );
-            return;
+          print('Vacio');
+          nextB = false;
+            //return;
+            break;
           } else {
             // Imprimir el texto en la consola si no está vacío
             print('Texto ingresado en TextField ${i + 1}: $text');
+            nextB = true;
           }
           
-        }
-        Map<String, dynamic> jsonData = tJCreateAccount(
+          if(nextB == true){
+            Map<String, dynamic> jsonData = tJCreateAccount(
             inputTexts![2], 
             inputTexts![0], 
             inputTexts![1], 
@@ -75,7 +88,14 @@ class Confirmation_Button extends StatelessWidget{
           
           inputTexts!.clear();
           i=0;
-
+          if (ruta != null) {
+          Navigator.pushNamed(context, ruta!);
+        }
+          }else{
+            print('Proceso detenido');
+          };
+        }
+        
           
           }else if (Text_Field == 'CM'){
           for (i; i < inputTexts!.length; i++) {
@@ -87,14 +107,17 @@ class Confirmation_Button extends StatelessWidget{
             builder: (context) => Fail_Notification(tituloFN: 'Error', 
             mensajeFN: 'Haz dejado un espacio en blanco para tu mascota',)
           );
-            return;
+          nextB = false;
+            //return;
+            break;
           } else {
             // Imprimir el texto en la consola si no está vacío
             print('Texto ingresado en RegisterCat ${i + 1}: $text');
+            nextB = true;
           }
-          
-        }
-        Map<String, dynamic> jsonDataP = tJCreatePet(
+
+          if(nextB == true){
+            Map<String, dynamic> jsonDataP = tJCreatePet(
             inputTexts![0], 
             inputTexts![1], 
             inputTexts![2], 
@@ -105,12 +128,108 @@ class Confirmation_Button extends StatelessWidget{
           CreatePet('https://eouww9yquk.execute-api.us-east-1.amazonaws.com/pets/add_pet', 
           jsonDataP
           );
-
+          
           inputTexts!.clear();
           i=0;
-        };
+          if (ruta != null) {
+          Navigator.pushNamed(context, ruta!);
+          }else{
+            print('Proceso detenido');
+          }
+          
+        }
+        
+        }
+        }else if(Text_Field == 'EU'){
+          // Ejecuta la función pasada como argumento
+          for (i ; i < inputTexts!.length; i++) {
+          String text = inputTexts![i];
+          if (text.isEmpty) {
+            // Mostrar mensaje si algún TextField está vacío
+            showDialog(
+            context: context,
+            builder: (context) => Fail_Notification(tituloFN: 'Error', 
+            mensajeFN: 'Haz dejado un espacio en blanco',)
+          );
+          print('Vacio');
+          nextB = false;
+            //return;
+            break;
+          } else {
+            // Imprimir el texto en la consola si no está vacío
+            print('Texto ingresado en Editar Usuario ${i + 1}: $text');
+            nextB = true;
+          }
+          
+          if(nextB == true){
+            Map<String, dynamic> jsonData = tJEditAccount(
+            inputTexts![2], 
+            inputTexts![0], 
+            inputTexts![1], 
+            inputTexts![3], 
+            inputTexts![4],
+            );
+
+            EdditAccount(inputTexts![5], 
+            jsonData);
+          
+          inputTexts!.clear();
+          i=0;
+          if (ruta != null) {
+          Navigator.pushNamed(context, ruta!);
+        }
+          }else{
+            print('Proceso detenido');
+          }
+        }
+        
+        }else if(Text_Field == 'IS') {
+          // Ejecuta la función pasada como argumento
+          for (i ; i < inputTexts!.length; i++) {
+          String text = inputTexts![i];
+          if (text.isEmpty) {
+            // Mostrar mensaje si algún TextField está vacío
+            showDialog(
+            context: context,
+            builder: (context) => Fail_Notification(tituloFN: 'Error', 
+            mensajeFN: 'Haz dejado un espacio en blanco',)
+          );
+          print('Vacio');
+          nextB = false;
+            //return;
+            break;
+          } else {
+            // Imprimir el texto en la consola si no está vacío
+            print('Texto ingresado en TextField ${i + 1}: $text');
+            nextB = true;
+          }
+
+          if(nextB == true){
+          Map<String, dynamic> jsonData = tJLogIn(
+            inputTexts![0], 
+            inputTexts![1], 
+            );
+
+            dataLogIn('https://eouww9yquk.execute-api.us-east-1.amazonaws.com/user/login', 
+            jsonData);
+          
+          inputTexts!.clear();
+          i=0;
+          if (ruta != null) {
+          Navigator.pushNamed(context, ruta!);
+        }
+          };
+          
         }
 
+        
+        }else{
+          print('object');
+        }
+        }else{
+          print('');
+          Navigator.pushNamed(context, ruta!);
+        }
         
         
       } : null,

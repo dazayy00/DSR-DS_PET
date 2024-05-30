@@ -4,7 +4,9 @@ import 'package:pet_plus_ver01/Dat/UserData.dart';
 //import '../../Data/Entities.dart';
 import '../Entities.dart';
 
-Future<void> post_LogInAccount(String url, Map<String, dynamic> datos) async {
+Future<dynamic> post_LogInAccount(String url, Map<String, dynamic> datos) async {
+  List<dynamic> answerL;
+  List<String> nameList = [];
   try {
     var response = await http.post(
       Uri.parse(url),
@@ -14,6 +16,23 @@ Future<void> post_LogInAccount(String url, Map<String, dynamic> datos) async {
     if (response.statusCode == 200) {
       print('Request exitoso!');
       print('Respuesta del servidor: ${response.body}');
+
+      var lista = jsonDecode(response.body);
+      print('///');
+      print(lista);
+/*
+      if(lista['token']){
+
+      }else if(lista['message']){
+
+      }
+
+      for (var elemento in lista) {
+        print(elemento['name']);
+        nameList.add(elemento['name']);
+      }*/
+      
+      return null;
 
       //Convertir los datos a Entities
       /*UserData user1 = new UserData();
@@ -30,9 +49,11 @@ Future<void> post_LogInAccount(String url, Map<String, dynamic> datos) async {
 
     } else {
       print('Error en el request. Código de estado: ${response.statusCode}');
+      return null;
     }
   } catch (e) {
     print('Error en la solicitud: $e');
+    return null;
   }
 }
 
@@ -58,13 +79,26 @@ Future<void> post_CreateAccount(String url, Map<String, dynamic> datos) async {
       });
 
       UserData usuario1 = UserData();
+      String us = decodedResponse['user'].toString();
+      String n = decodedResponse['name'].toString();
+      String ln = decodedResponse['lastname'].toString();
+      String em = decodedResponse['email'].toString();
+      String pw = decodedResponse['password'].toString();
+      String iid = decodedResponse['id'].toString();
+
+      usuario1.setUsuario(us);
+      usuario1.setNombre(n);
+      usuario1.setApellido(ln);
+      usuario1.setEmail(em);
+      usuario1.setContrasena(pw);
+      usuario1.setId(iid);
       
-      await usuario1.setUsuario(accountdata[0]);
+      /*await usuario1.setUsuario(accountdata[0]);
       await usuario1.setNombre(accountdata[1]);
       await usuario1.setApellido(accountdata[2]);
       await usuario1.setEmail(accountdata[3]);
       await usuario1.setContrasena(accountdata[4]);
-      await usuario1.setId(accountdata[5]);
+      await usuario1.setId(accountdata[5]);*/
 
       print('object');
 

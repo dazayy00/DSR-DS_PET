@@ -62,30 +62,6 @@ class _Create_AccountState extends State<Create_Account> {
     }
   }
 
-  /*void _compareTexts() {
-    if (_controller5.text != '' && _controller6.text != '' && _controller5.text != null && _controller5.text != null) {
-      if (_controller5.text == _controller6.text) {
-      setState(() {
-        result = '==';
-        _result = true;
-        List<String> FieldT = [_controller1.text, _controller2.text, _controller3.text, _controller4.text, _controller5.text,];
-        for (var texto in FieldT) {
-    inputT!.add(texto);
-  }
-      });
-    } else {
-      setState(() {
-        result = '!=';
-        _result = false;
-      });
-    }
-    }else{
-      print('No hay texto');
-      _result = false;
-    }
-    
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,18 +140,7 @@ class _Create_AccountState extends State<Create_Account> {
                 
                 Confirmation_Button(TextButton: 'Crear Cuenta', 
                 additionalFunction: _compareTexts, 
-                /*additionalFunction: () {
-                setState(() {
-                  String text1 = _controller1.text;
-                  String text2 = _controller2.text;
-                  if (text1 == text2) {
-                    _result = true;
-                  } else {
-                    _result = false;
-                  }
-                  print("Ñ");
-                });
-              },*/
+                
                 //ruta: '/home', //No ir a ningun lado si esta vacio o contrasena
                 //ruta: _inputTexts[0].toString() == _inputTexts[1].toString() ? '/home' : null,
                 //ruta: _inputTexts[0] == _inputTexts[1] ? '/home' : null,
