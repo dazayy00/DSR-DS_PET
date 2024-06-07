@@ -25,7 +25,7 @@ class _Clock_WidgetState extends State<Clock_Widget> {
       //primaryColor: Colors.red, // Cambia el color principal del tema
       colorScheme: ColorScheme.light(primary: Colors.green), // Cambia el color de fondo del tema
       textTheme: TextTheme( // Cambia el estilo de texto del tema
-        subtitle1: TextStyle(color: Colors.black), // Cambia el color del texto
+        titleMedium: TextStyle(color: Colors.black), // Cambia el color del texto
       ),
       timePickerTheme: TimePickerThemeData( // Define el tema específico del TimePicker
         //hourMinuteColor: Colors.white, // Cambia el color de las manecillas

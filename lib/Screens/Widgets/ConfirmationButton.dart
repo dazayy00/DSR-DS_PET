@@ -11,6 +11,7 @@ class Confirmation_Button extends StatelessWidget{
   //String TextButton = '¡Empezar ahora!';
   String TextButton = '...';
   bool ActivateButton;
+  //bool RestrictedRoute;
 
   String? Text_Field;
   List<String>? inputTexts;
@@ -22,6 +23,7 @@ class Confirmation_Button extends StatelessWidget{
   int i = 0;
 
   Confirmation_Button({required this.TextButton, this.ruta, this.ActivateButton=true, 
+  //required this.RestrictedRoute,
   this.Text_Field, 
   this.inputTexts, 
   this.additionalFunction,

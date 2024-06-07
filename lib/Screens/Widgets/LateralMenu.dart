@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/MainScreenU.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Lateral_Menu extends StatelessWidget {
-  const Lateral_Menu({super.key});
+class Lateral_Menu extends StatefulWidget {
+  //Function(String, String) onTextChanged;
+  /*Lateral_Menu({
+    required this.onTextChanged
+    //super.key
+    });*/
 
+  @override
+  State<Lateral_Menu> createState() => _Lateral_MenuState();
+}
+
+class _Lateral_MenuState extends State<Lateral_Menu> {
+  String userN = 'TextUser';
+  String emailN = 'test.user@testmail.com';
+  List<String> listaS = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getInfo();
+  }
+
+  Future<void> getInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userN = prefs.getString('usuarioS')!;
+    emailN = prefs.getString('emailS')!;
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -27,7 +56,7 @@ class Lateral_Menu extends StatelessWidget {
                       children: <Widget>[
                         Row(
                           children: [
-                            Text('TestUser',
+                            Text(userN,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20
@@ -55,7 +84,7 @@ class Lateral_Menu extends StatelessWidget {
                           ],
                         ),
                         
-                        Text('test.user@testmail.com',
+                        Text(emailN,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15

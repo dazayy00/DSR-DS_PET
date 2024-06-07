@@ -11,6 +11,7 @@ import 'package:pet_plus_ver01/Screens/UserScreens/MainScreenU.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP1.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterPetP2.dart';
+import 'package:pet_plus_ver01/Screens/UserScreens/Register_1st_Cat.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/home.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/ClockWidget.dart';
 import 'package:pet_plus_ver01/Screens/Widgets/SuccessNotification.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
         '/LogIn':(context) => Log_In(),
         '/EditAccount':(context) => Edit_Account(),
         '/RegisterCat':(context) => Register_Cat(),
+        '/Register_1st_Cat':(context) => Register_1st_Cat(),
         '/RegisterPetP1':(context) => Register_PetP1(),
         '/RegisterPetP2':(context) => Register_PetP2(),
         '/EditPetP':(context) => Edit_PetP(),

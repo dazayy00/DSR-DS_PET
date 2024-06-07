@@ -54,7 +54,7 @@ class Delete_Account extends StatelessWidget {
               
               
               await clearSharedPreferences();
-              Navigator.pushNamed(context, '/MainScreen');
+               Navigator.pushReplacementNamed(context, '/MainScreen');
               // Agrega aquí la lógica para eliminar la cuenta
               // Por ejemplo, puedes mostrar un diálogo de confirmación antes de eliminarla
             },

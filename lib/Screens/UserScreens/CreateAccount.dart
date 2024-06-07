@@ -144,7 +144,7 @@ class _Create_AccountState extends State<Create_Account> {
                 //ruta: '/home', //No ir a ningun lado si esta vacio o contrasena
                 //ruta: _inputTexts[0].toString() == _inputTexts[1].toString() ? '/home' : null,
                 //ruta: _inputTexts[0] == _inputTexts[1] ? '/home' : null,
-                ruta: '/RegisterCat' ,
+                ruta: '/Register_1st_Cat' ,
                 //Text_Field: _inputTexts[1] == _inputTexts[1] ? true : false,
                 Text_Field: 'CU',
                 inputTexts: inputT,

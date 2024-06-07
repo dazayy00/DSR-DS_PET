@@ -51,124 +51,127 @@ class _homeState extends State<home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-              'MI HOGAR',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 44, 193, 219),
-                shadows: [
-                  Shadow(
-                    color: Colors.black,
-                    offset: Offset(1, 1),
-                    blurRadius: 2,
-                  ),
-                ],
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+                'MI HOGAR',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 44, 193, 219),
+                  shadows: [
+                    Shadow(
+                      color: Colors.black,
+                      offset: Offset(1, 1),
+                      blurRadius: 2,
+                    ),
+                  ],
+                ),
               ),
-            ),
-      ),
-      drawer: Lateral_Menu(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            //Widget encima
-            /*
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Encabezado',
-                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-              ),
-            ),*/
-            
-            
-            // Lista de cuadrados
-            //index es el numero de instancias Pet+
-            //Es necesario crear una lista para cada conexion
-            Column(
-              children: List.generate(nameList.length, (index) {
-                return ServiceCard(
-              icon: Icons.power_settings_new,
-              state: false,
-              availability: 900,
-              //clockT: '00:00',
-              //thumbsUp: true,
-              petname: nameList[index],
-              iconSize: 60,
-            );
-              }),
-            ),
-            
-            // Widget debajo de la lista de cuadrados
-            /*
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Pie de página',
-                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-              ),
-            ),
-            */
-            
-            ListN(listaRectangulos),
-
-            /*
-            ElevatedButton(
-            onPressed: () {
-              setState(() {
-                listaRectangulos.add(
-                  ServiceCard(
-          icon: Icons.power_settings_new,
-          state: false,
-          availability: 900,
-          //clockT: 'Lun ' + '00:00',
-          //thumbsUp: true,
-          petname: 'michi 1',
-          iconSize: 60,
         ),
-                );
-              });
-            },
-            child: const Text('Agregar Rectángulo'),
-          ),*/
-            
-            /*
-            ServiceCard(
-              icon: Icons.power_settings_new,
-              state: false,
-              availability: 900,
-              nextRound: 'Lun ' + '00:00',
-              //thumbsUp: true,
-              petname: 'michi 1',
-              iconSize: 60,
-            ),
-            SizedBox(height: 20),
-            ServiceCard(
-              icon: Icons.power_settings_new,
-              state: true,
-              availability: 480,
-              nextRound: 'Mier ' + '8:40',
-              //thumbsUp: true,
-              petname: 'michi 2',
-              iconSize: 60,
-            ),
-            SizedBox(height: 20),
-            ServiceCard(
-              icon: Icons.power_settings_new,
-              state: false,
-              availability: 0,
-              nextRound: 'No definida',
-              //thumbsUp: false,
-              petname: 'michi 3',
-              iconSize: 60,
-            ),
-            SizedBox(height: 20),
-            */
-            
-          ],
+        drawer: Lateral_Menu(),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              //Widget encima
+              /*
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Encabezado',
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                ),
+              ),*/
+              
+              
+              // Lista de cuadrados
+              //index es el numero de instancias Pet+
+              //Es necesario crear una lista para cada conexion
+              Column(
+                children: List.generate(nameList.length, (index) {
+                  return ServiceCard(
+                icon: Icons.power_settings_new,
+                state: false,
+                availability: 900,
+                //clockT: '00:00',
+                //thumbsUp: true,
+                petname: nameList[index],
+                iconSize: 60,
+              );
+                }),
+              ),
+              
+              // Widget debajo de la lista de cuadrados
+              /*
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Pie de página',
+                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                ),
+              ),
+              */
+              
+              ListN(listaRectangulos),
+      
+              /*
+              ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  listaRectangulos.add(
+                    ServiceCard(
+            icon: Icons.power_settings_new,
+            state: false,
+            availability: 900,
+            //clockT: 'Lun ' + '00:00',
+            //thumbsUp: true,
+            petname: 'michi 1',
+            iconSize: 60,
+          ),
+                  );
+                });
+              },
+              child: const Text('Agregar Rectángulo'),
+            ),*/
+              
+              /*
+              ServiceCard(
+                icon: Icons.power_settings_new,
+                state: false,
+                availability: 900,
+                nextRound: 'Lun ' + '00:00',
+                //thumbsUp: true,
+                petname: 'michi 1',
+                iconSize: 60,
+              ),
+              SizedBox(height: 20),
+              ServiceCard(
+                icon: Icons.power_settings_new,
+                state: true,
+                availability: 480,
+                nextRound: 'Mier ' + '8:40',
+                //thumbsUp: true,
+                petname: 'michi 2',
+                iconSize: 60,
+              ),
+              SizedBox(height: 20),
+              ServiceCard(
+                icon: Icons.power_settings_new,
+                state: false,
+                availability: 0,
+                nextRound: 'No definida',
+                //thumbsUp: false,
+                petname: 'michi 3',
+                iconSize: 60,
+              ),
+              SizedBox(height: 20),
+              */
+              
+            ],
+          ),
         ),
       ),
     );
