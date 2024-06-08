@@ -5,7 +5,6 @@ import 'package:pet_plus_ver01/Screens/UserScreens/CreateAccount.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/DeleteAccount.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EditAccount.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/EditPetP.dart';
-import 'package:pet_plus_ver01/Screens/UserScreens/EliminarCuenta';
 import 'package:pet_plus_ver01/Screens/UserScreens/LogIn.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/MainScreenU.dart';
 import 'package:pet_plus_ver01/Screens/UserScreens/RegisterCat.dart';
@@ -72,7 +71,6 @@ class MyApp extends StatelessWidget {
         '/home':(context) => home(),
         '/ClockWidget':(context) => Clock_Widget(),
         '/TimeWidget':(context) => Time_Widget(),
-        '/EliminarCuenta':(context) => EliminarCuenta(),
         '/DeleteAccount':(context) => Delete_Account(),
         
       },

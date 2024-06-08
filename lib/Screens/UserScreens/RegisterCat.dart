@@ -122,6 +122,7 @@ class _Register_CatState extends State<Register_Cat> {
         
                 List_Button_Widget(ruta: 8, lista: Race_Selector,
                 onItemSelected: _onItemSelected,
+                pathtype: 'RaceId',
                 ),
 
                 Text(selectedItem),

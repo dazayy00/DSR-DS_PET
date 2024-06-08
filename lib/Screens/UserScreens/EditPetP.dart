@@ -47,13 +47,17 @@ class Edit_PetP extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                 ),
         
-                List_Button_Widget(ruta: 11, lista: Food_Selector,),
+                List_Button_Widget(ruta: 11, lista: Food_Selector,
+                pathtype: '_',
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
 
-                List_Button_Widget(ruta: 8, lista: Cat_Owner_Selector,),
+                List_Button_Widget(ruta: 8, lista: Cat_Owner_Selector,
+                pathtype: '_',
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),

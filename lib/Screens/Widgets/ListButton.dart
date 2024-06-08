@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_plus_ver01/Routes/ListFoodId.dart';
 import 'package:pet_plus_ver01/Routes/ListRaceId.dart';
 import '../../Routes/IconSelector.dart';
 
@@ -7,6 +8,7 @@ class List_Button_Widget extends StatefulWidget {
   //List rselect = ListRaceSelector;
   int ruta = 0;
   List<String> lista = ['Opción 1', 'Opción 2', 'Opción 3'];
+  String pathtype;
   List<String>? listaID;
   String? _selectedItem;
   ValueChanged<String>? onItemSelected;
@@ -14,6 +16,7 @@ class List_Button_Widget extends StatefulWidget {
   List_Button_Widget({
     required this.ruta, 
     required this.lista,
+    required this.pathtype,
     
     this.listaID,
     this.onItemSelected
@@ -89,10 +92,22 @@ class _List_Button_WidgetState extends State<List_Button_Widget> {
                   valorSeleccionado = newValue;
                 });
               print('Seleccionaste: $newValue');
-              print(Race_Id.getRaceID(newValue!));
-              if (newValue != null) {
-          widget.onItemSelected!(Race_Id.getRaceID(newValue!));
-        }
+
+              if(widget.pathtype == 'RaceId'){
+                print(Race_Id.getRaceID(newValue!));
+                if (newValue != null) {
+                  widget.onItemSelected!(Race_Id.getRaceID(newValue!));
+                }
+              }else if(widget.pathtype == 'FoodId'){
+                print(Food_Id.getFoodID(newValue!));
+                if (newValue != null) {
+                  widget.onItemSelected!(Food_Id.getFoodID(newValue!));
+                }
+              }else if(widget.pathtype == 'PetSelect'){
+                print('Codigo no terminado 2');
+              }
+
+              
             },
             ),
           ),
