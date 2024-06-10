@@ -77,3 +77,71 @@ Future<dynamic> get_AccountPets(String url) async {
     return null;
   }
 }
+
+Future<dynamic> get_AccountPetData(String url) async {
+  List<dynamic> answerL;
+  List<String> nameList = [];
+  try {
+    var response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      print('Request exitoso!');
+      print('Respuesta del servidor: ${response.body}');
+      
+      List<dynamic> lista = jsonDecode(response.body);
+
+      print('///');
+      print(lista);
+      
+      /*
+      for (var elemento in lista) {
+        print(elemento['name']);
+        nameList.add(elemento['name']);
+      }
+      */
+      
+      return lista;
+        
+    } else {
+      print('Error en el request. Código de estado: ${response.statusCode}');
+      return null;
+    }
+  } catch (e) {
+    print('Error en la solicitud: $e');
+    return null;
+  }
+}
+
+Future<dynamic> get_AccountPetPData(String url) async {
+  List<dynamic> answerL;
+  List<String> nameList = [];
+  try {
+    var response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      print('Request exitoso!');
+      print('Respuesta del servidor: ${response.body}');
+      
+      List<dynamic> lista = jsonDecode(response.body);
+
+      print('///');
+      print(lista);
+      
+      /*
+      for (var elemento in lista) {
+        print(elemento['name']);
+        nameList.add(elemento['name']);
+      }
+      */
+      
+      return lista;
+        
+    } else {
+      print('Error en el request. Código de estado: ${response.statusCode}');
+      return null;
+    }
+  } catch (e) {
+    print('Error en la solicitud: $e');
+    return null;
+  }
+}

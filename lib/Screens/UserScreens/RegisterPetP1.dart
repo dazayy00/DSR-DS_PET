@@ -9,8 +9,35 @@ import 'package:pet_plus_ver01/Screens/Widgets/TextPasswordDefault.dart';
 import '../../Routes/IconSelector.dart';
 import '../../Routes/ListRaceSelector.dart';
 
-class Register_PetP1 extends StatelessWidget {
+class Register_PetP1 extends StatefulWidget {
+  @override
+  State<Register_PetP1> createState() => _Register_PetP1State();
+}
+
+class _Register_PetP1State extends State<Register_PetP1> {
   //const Register_Cat({super.key});
+  TextEditingController _controller1 = TextEditingController();
+  
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller1.dispose();
+    super.dispose();
+  }
+
+  List<String>? inputT = [];
+  String? input = '';
+
+  void _saveTexts(){
+    
+    setState(() {
+      input = _controller1.text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +68,9 @@ class Register_PetP1 extends StatelessWidget {
                   padding: EdgeInsets.all(16.0),
                 ),
         
-                TextField_Default(TextTf: 'Código', ruta: 14,),
+                TextField_Default(TextTf: 'Código', ruta: 14,
+                controller: _controller1,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
@@ -53,7 +82,12 @@ class Register_PetP1 extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
                 ),
 
-                Confirmation_Button(TextButton: 'Buscar', ruta: '/RegisterPetP2',),
+                Confirmation_Button(TextButton: 'Buscar', 
+                additionalFunction: _saveTexts, 
+                ruta: '/RegisterPetP2', 
+                Text_Field: 'ConnectM',
+                savedCodeT: _controller1,
+                ),
         
               ],
           ),

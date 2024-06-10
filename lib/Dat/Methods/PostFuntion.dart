@@ -195,6 +195,60 @@ Future<void> post_CreatePet(String url, Map<String, dynamic> datos) async {
     print('Error en la solicitud: $e');
   }
 }
+
+Future<void> post_CreatePetP(String url, Map<String, dynamic> datos) async {
+
+  try {
+    var response = await http.post(
+      Uri.parse(url),
+      body: jsonEncode(datos),
+      
+    );
+
+    if (response.statusCode == 200) {
+      print('Request exitoso!');
+      print('Respuesta del servidor: ${response.body}');
+      ////
+      List<String>? accountdata = [];
+      // Decodificar el cuerpo de la respuesta
+      var decodedResponse = jsonDecode(response.body);
+      // Imprimir cada clave-valor por separado
+      decodedResponse.forEach((key, value) {
+        print('$key: $value');
+        accountdata.add(value);
+      });
+
+      print('1: ${accountdata[0]}');
+      print('2: ${accountdata[1]}');
+      print('3: ${accountdata[2]}');
+      print('4: ${accountdata[3]}');
+      print('5: ${accountdata[4]}');
+      print('6: ${accountdata[5]}');
+      print('7: ${accountdata[6]}');
+      
+    } else {
+      print('Error en el request. Código de estado: ${response.statusCode}');
+
+      List<String>? accountdata = [];
+      var decodedResponse = jsonDecode(datos.toString());
+      print('Failed Create Machine Connection');
+      // Imprimir cada clave-valor por separado
+      decodedResponse.forEach((key, value) {
+        print('$key: $value');
+        accountdata.add(value);
+      });
+
+      print('1: ${accountdata[0]}');
+      print('2: ${accountdata[1]}');
+      print('3: ${accountdata[2]}');
+      print('4: ${accountdata[3]}');
+      print('5: ${accountdata[4]}');
+    }
+  } catch (e) {
+    print('Error en la solicitud: $e');
+  }
+}
+
 /*
 Future<void> post_CreatePetPlus(String url, Map<String, dynamic> datos) async {
   try {

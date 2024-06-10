@@ -25,14 +25,37 @@ Future<void> CreatePet
   return post_CreatePet(url, jsonData);
 
 }
+
+Future<void> CreatePetP
+(String url, Map<String, dynamic> jsonData){
+  
+  return post_CreatePet(url, jsonData);
+
+}
 //
 
 ///GET
 Future<dynamic> GetAccountPets
 (String urlid){
   String url = 'https://eouww9yquk.execute-api.us-east-1.amazonaws.com/pets/get_pets_user?id=$urlid';
-  print('Obteniendo datos de Usuario');
+  print('Obteniendo datos de Mascotas');
   return get_AccountPets(url);
+
+}
+
+Future<dynamic> GetAccountPetData
+(String urlid){
+  String url = 'https://eouww9yquk.execute-api.us-east-1.amazonaws.com/pets/get_pets_user?id=$urlid';
+  print('Obteniendo datos de Mascota Adicionales');
+  return get_AccountPetData(url);
+
+}
+
+Future<dynamic> GetAccountPetPData
+(String urlid){
+  String url = 'https://eouww9yquk.execute-api.us-east-1.amazonaws.com/machines/get_machines_user?id=$urlid';
+  print('Obteniendo datos de Maquina Adicionales');
+  return get_AccountPetPData(url);
 
 }
 

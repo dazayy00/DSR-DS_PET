@@ -17,6 +17,8 @@ class Confirmation_Button extends StatelessWidget{
   List<String>? inputTexts;
   final String? ruta;
   final VoidCallback? additionalFunction;
+  String? savedCode;
+  TextEditingController? savedCodeT;
 
   Color ButtonColor = Color(0xFFe8e7d2);
   Color TextColor = Colors.black;
@@ -27,6 +29,8 @@ class Confirmation_Button extends StatelessWidget{
   this.Text_Field, 
   this.inputTexts, 
   this.additionalFunction,
+  this.savedCode,
+  this.savedCodeT
   });
   
   @override
@@ -225,9 +229,62 @@ class Confirmation_Button extends StatelessWidget{
         }
 
         
+        }else if(Text_Field == 'ConnectM'){
+          print('Ver si se paso el String');
+          print(savedCode);
+          Navigator.pushNamed(context, ruta!, arguments: savedCodeT!.text,);
+        }else if(Text_Field == 'ConnectM2'){
+
+          for (i ; i < inputTexts!.length; i++) {
+          String text = inputTexts![i];
+          if (text.isEmpty) {
+            // Mostrar mensaje si algún TextField está vacío
+            showDialog(
+            context: context,
+            builder: (context) => Fail_Notification(tituloFN: 'Error', 
+            mensajeFN: 'Haz dejado un espacio en blanco al registrar un Pet+',)
+          );
+          print('Vacio');
+          nextB = false;
+            //return;
+            break;
+          } else {
+            // Imprimir el texto en la consola si no está vacío
+            print('Texto ingresado en TextField ${i + 1}: $text');
+            nextB = true;
+          }
+          
+          if(nextB == true){
+            ///
+            ///
+            Map<String, dynamic> jsonData = tJCreatePetP(
+            inputTexts![0], 
+            inputTexts![1], 
+            inputTexts![2], 
+            inputTexts![3], 
+            );
+
+            CreatePetP('https://eouww9yquk.execute-api.us-east-1.amazonaws.com/machines/add_machine', 
+            jsonData);
+
+            print(inputTexts![0]);
+            print(inputTexts![1]);
+            print(inputTexts![2]);
+            print(inputTexts![3]);
+          
+          inputTexts!.clear();
+          i=0;
+          if (ruta != null) {
+          Navigator.pushNamed(context, ruta!);
+        }
+          
+          };
+        }
+
         }else{
           print('object');
         }
+
         }else{
           print('');
           Navigator.pushNamed(context, ruta!);

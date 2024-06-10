@@ -20,18 +20,50 @@ class Register_PetP2 extends StatefulWidget {
 
 class _Register_PetP2State extends State<Register_PetP2> {
   //const Register_PetP({super.key});
+  TextEditingController _controller1 = TextEditingController();
+
   Color colora = Colors.red;
   String selectedItem = '';
+  List<String>? inputT = [];
 
   String id = '22';
   var nList;
+  var doubleList;
   List<String> nameList = ['-Seleccionar-'];
+  List<String> prenameList = [];
+  List<String> idList = [];
+  late String texto;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    texto = ModalRoute.of(context)!.settings.arguments as String;
+  }
+
+  @override
+  void dispose() {
+    _controller1.dispose();
+    super.dispose();
+  }
+
+  void _saveTexts(){
+    
+    setState(() {
+      
+      List<String> FieldT = [texto, _controller1.text, id, selectedItem];
+      for (var texto in FieldT) {
+        inputT!.add(texto);
+      }
+      print('maquina');
+    });
+  }
 
   @override
   void initState() {
     
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.delayed(Duration(seconds: 3), getId);
+
     });
 
     super.initState();
@@ -44,6 +76,7 @@ class _Register_PetP2State extends State<Register_PetP2> {
     await Future.delayed(Duration(seconds: 4));
     setState(() {
       print('Actualizacion: 2 carga');
+      print(texto + '___');
     });
   }
 
@@ -60,11 +93,20 @@ class _Register_PetP2State extends State<Register_PetP2> {
     print(id + '------');
     nList = await GetAccountPets(id);
     //nameList = nList.cast<String>();
-    nameList.addAll(nList.cast<String>());
+    ///nameList.addAll(nList.cast<String>());
+    
+    doubleList = await GetAccountPetData(id);
+    for (var elemento in doubleList) {
+    prenameList.add(elemento['name']);
+    idList.add(elemento['id']);
+    }
+    nameList.addAll(prenameList);
   }
 
   @override
   Widget build(BuildContext context) {
+    String texto = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
@@ -86,26 +128,30 @@ class _Register_PetP2State extends State<Register_PetP2> {
                   padding: EdgeInsets.all(16.0),
                 ),
         
-                TextField_Default(TextTf: 'Nombre', ruta: 1,),
+                TextField_Default(TextTf: 'Nombre', ruta: 1,
+                controller: _controller1,
+                ),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
         
                 //TextField_Default(TextTf: 'Alimento', ruta: 11,),
-
+                /*
                 List_Button_Widget(ruta: 11, //lista: Cat_Owner_Selector,
                 lista: Food_Selector,
                 onItemSelected: _onItemSelected,
                 pathtype: 'FoodId',
                 ),
-
                 Padding(
                   padding: EdgeInsets.all(8.0),
                 ),
+                */
 
                 List_Button_Widget(ruta: 8, //lista: Cat_Owner_Selector,
                 lista: nameList,
+                //lista2: idList,
+                jj: doubleList,
                 onItemSelected: _onItemSelected,
                 pathtype: 'PetSelect',
                 ),
@@ -120,7 +166,12 @@ class _Register_PetP2State extends State<Register_PetP2> {
                   padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
                 ),*/
 
-                Confirmation_Button(TextButton: 'Confirmar', ruta: '/home',),
+                Confirmation_Button(TextButton: 'Confirmar', 
+                additionalFunction: _saveTexts,
+                ruta: '/home',
+                Text_Field: 'ConnectM2',
+                inputTexts: inputT,
+                ),
 
                 TextButtonWidget(texto: 'Cancelar', color: Colors.red, atras: 'atras',),
 

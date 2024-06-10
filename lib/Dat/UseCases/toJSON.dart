@@ -34,6 +34,20 @@ Map<String, dynamic> tJCreatePet
 
 }
 
+Map<String, dynamic> tJCreatePetP 
+(String codigo, String nombrem, String uId, String pId){
+
+  return {
+    'code': codigo,
+    'name': nombrem,
+    'statusMachine': 'false',
+    'id_user': uId,
+    'id_pet': pId,
+    'activationTime': 'NA'
+  };
+
+}
+
 Map<String, dynamic> tJEditAccount 
 (String usuario, String nombre, String apellido, String email, String contrasena){
 

@@ -9,6 +9,7 @@ class ServiceCard extends StatefulWidget {
   //final bool thumbsUp;
   final double iconSize;
   final String petname;
+  String? clockT;
 
 ServiceCard({
     required this.icon,
@@ -18,6 +19,7 @@ ServiceCard({
     required this.petname,
     //required this.thumbsUp,
     this.iconSize = 40,
+    this.clockT
   });
 
   
@@ -28,7 +30,7 @@ ServiceCard({
 
 class _ServiceCardState extends State<ServiceCard> {
   late bool _value;
-  String clockT = 'No disponible';
+  //String clockT = 'No disponible';
 
   @override
   void initState() {
@@ -135,7 +137,7 @@ class _ServiceCardState extends State<ServiceCard> {
                   Time_Widget(
                         onTimeSelected: (TimeOfDay time) {
                           print('Hora seleccionada sc: ${time.format(context)}');
-                          clockT = time.format(context);
+                          widget.clockT = time.format(context);
                           setState(() {
                             _loadData;
                 });
@@ -151,7 +153,7 @@ class _ServiceCardState extends State<ServiceCard> {
                   ),
                   Text(
                     //nextRound.split(': ')[1] + '🕒',
-                    clockT,
+                    widget.clockT!,
                     style: TextStyle(
                       fontSize: 22,
                       color: Color.fromARGB(255, 63, 209, 148),

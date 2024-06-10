@@ -8,6 +8,8 @@ class List_Button_Widget extends StatefulWidget {
   //List rselect = ListRaceSelector;
   int ruta = 0;
   List<String> lista = ['Opción 1', 'Opción 2', 'Opción 3'];
+  List<String>? lista2 = [];
+  var jj;
   String pathtype;
   List<String>? listaID;
   String? _selectedItem;
@@ -16,6 +18,8 @@ class List_Button_Widget extends StatefulWidget {
   List_Button_Widget({
     required this.ruta, 
     required this.lista,
+    this.lista2,
+    this.jj,
     required this.pathtype,
     
     this.listaID,
@@ -105,6 +109,15 @@ class _List_Button_WidgetState extends State<List_Button_Widget> {
                 }
               }else if(widget.pathtype == 'PetSelect'){
                 print('Codigo no terminado 2');
+                for (var item in widget.jj) {
+                  if (item['name'] == newValue) {
+                    print(item['id']);
+                    widget.onItemSelected!(item['id']);
+                    //return item['id'];
+                  }else{
+                    print('Error de busqueda Pet_Id');
+                  }
+                  }
               }
 
               

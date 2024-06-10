@@ -14,7 +14,14 @@ class _homeState extends State<home> {
   List<Widget> listaRectangulos = [];
   String id = '123';
   var nList;
+  var pList;
   List<String> nameList = [];
+  List<String> idList = [];
+  List<String> idList2 = [];
+  List<String> petNameList = [];
+  List<String> finalPetNameList = [];
+  List<String> hourList = [];
+  List<String> statusList = [];
 
   @override
   void initState() {
@@ -44,8 +51,49 @@ class _homeState extends State<home> {
     
     id = prefs.getString('idS')!;
     print(id + '------');
-    nList = await GetAccountPets(id);
-    nameList = nList.cast<String>();
+    pList = await GetAccountPetData(id);
+    for (var elemento in pList) {
+    petNameList.add(elemento['name']);
+    idList2.add(elemento['id']);
+    }
+    
+    nList = await GetAccountPetPData(id);
+    for (var elemento in nList) {
+    nameList.add(elemento['name']);
+    idList.add(elemento['id_pet']);
+    //petNameList.add(elemento['']);
+    hourList.add(elemento['activationTime']);
+    statusList.add(elemento['statusMachine']);
+    }
+    
+    for (int i = 0; i < idList.length; i++) {
+    for (int j = 0; j < idList2.length; j++) {
+      if (idList[i] == idList2[j]) {
+        print(petNameList[j]);
+        finalPetNameList.add(petNameList[j]);
+      }
+    }
+  }
+
+  List<bool> boolList = convertirAListaBool(statusList);
+
+  
+}
+
+List<bool> convertirAListaBool(List<String> stringList) {
+  return stringList.map((item) => item.toLowerCase() == 'true').toList();
+/*
+  for (String item in statusList) {
+    if (item.toLowerCase() == 'true') {
+      boolList!.add(true);
+    } else if (item.toLowerCase() == 'false') {
+      boolList!.add(false);
+    } else {
+      print('Valor no válido en la lista: $item');
+    }
+  }*/
+
+    //nameList = nList.cast<String>();
   }
   
 
@@ -94,12 +142,12 @@ class _homeState extends State<home> {
                 children: List.generate(nameList.length, (index) {
                   return ServiceCard(
                 icon: Icons.power_settings_new,
-                state: false,
+                state: convertirAListaBool(statusList)[index],
                 availability: 900,
-                //clockT: '00:00',
-                //thumbsUp: true,
-                petname: nameList[index],
+                //petname: nameList[index],
+                petname: finalPetNameList[index],
                 iconSize: 60,
+                clockT: hourList[index],
               );
                 }),
               ),
